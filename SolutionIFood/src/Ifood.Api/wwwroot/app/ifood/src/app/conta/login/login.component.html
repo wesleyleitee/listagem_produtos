@@ -1,0 +1,50 @@
+<div class="container main-container">
+
+    <div *ngIf="apiRetornou == false" class="alert alert-info mt-4">
+        <h6>Acessando, aguarde...
+            <div class="spinner-border text-primary">
+            </div>
+        </h6>
+    </div>
+
+    <h1 class="text-center mt-4">Login</h1>
+    <form novalidate (ngSubmit)="login()" [formGroup]="loginForm">
+        <h4>Realizar Login</h4>
+        <hr>
+        <div class="alert alert-danger" *ngIf="errors.length > 0">
+            <h3 id="msgRetorno">Ops, aconteceu algum imprevisto:</h3>
+            <ul>
+                <li *ngFor="let error of errors">{{ error }}</li>
+            </ul>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-2 control-label">Username</label>
+            <div class="col-md-10">
+                <input class="form-control" id="username" type="text" placeholder="(requerido)"
+                    formControlName="username" [ngClass]="{'is-invalid': displayMessage.username }" />
+                <span class="text-danger" *ngIf="displayMessage.username">
+                    <p [innerHTML]="displayMessage.username"></p>
+                </span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-2 control-label">Password</label>
+            <div class="col-md-10">
+                <input class="form-control" id="password" type="password" placeholder="(requerido)"
+                    formControlName="password" [ngClass]="{'is-invalid': displayMessage.password }" />
+                <span class="text-danger" *ngIf="displayMessage.password">
+                    <p [innerHTML]="displayMessage.password"></p>
+                </span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-4 col-md-offset-2">
+                <span><button class="btn btn-success" id="Login" [disabled]="!loginForm.valid"
+                        type="submit">Login</button></span>
+            </div>
+        </div>
+    </form>
+</div>

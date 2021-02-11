@@ -1,0 +1,23 @@
+<div class="container main-container">
+    <h3 class="mt-4">Detalhes {{ produto.nome }} </h3>
+    <br>
+
+    <div class="row">
+        <div class="col-md-4">
+            <img src="{{ imagens }}{{ produto.imagem }}" style="width: 300px; height: 428px">
+        </div>
+        <div class="col-md-6">
+            <dl>
+                <dt>Nome</dt>
+                <dd>{{ produto.nome }}</dd>
+                <dt>Valor</dt>
+                <dd>{{ produto.valor | currencyBrazil }}</dd>
+            </dl>
+            <div>
+                <a class="btn btn-warning" [routerLink]="['/produtos/editar',produto.id]">Editar</a>&nbsp;
+                <a class="btn btn-info" href="javascript:window.history.back();">Voltar</a>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,30 @@
+<div class="container main-container">
+    <h3 class="mt-4">Excluir {{ produto.nome }} </h3>
+    <br>
+    <div *ngIf="apiRetornou == false" class="alert alert-info mt-4">
+        <h6>Excluindo registro, aguarde...
+            <div class="spinner-border text-primary">
+            </div>
+        </h6>
+    </div>
+
+    <h5>Você tem certeza disso?</h5>
+
+    <div class="row">
+        <div class="col-md-4">
+            <img src="{{ imagens }}{{ produto.imagem }}" style="width: 300px; height: 428px">
+        </div>
+        <div class="col-md-6">
+            <dl>
+                <dt>Nome</dt>
+                <dd>{{ produto.nome }}</dd>
+                <dt>Valor</dt>
+                <dd>{{ produto.valor | currencyBrazil }}</dd>
+            </dl>
+            <div>
+                <a (click)="excluirProduto()" href="javascript:void(0)" class="btn btn-danger">Excluir</a>&nbsp;
+                <a class="btn btn-info" href="javascript:window.history.back();">Voltar</a>
+            </div>
+        </div>
+    </div>
+</div>

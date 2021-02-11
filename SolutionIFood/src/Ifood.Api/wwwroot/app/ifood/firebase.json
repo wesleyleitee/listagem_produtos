@@ -1,0 +1,17 @@
+{
+  "hosting": {
+    "site": "wesleyifood",
+    "public": "dist/ifood",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}

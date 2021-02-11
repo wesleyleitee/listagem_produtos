@@ -1,0 +1,41 @@
+<div class="container main-container">
+    <h1>Lista de Produtos</h1>
+    <hr>
+    <p><a class="btn btn-info" [routerLink]="['/produtos/adicionar-novo']">Adicionar Produto</a></p>
+
+    <div *ngIf="apiRetornou == false" class="alert alert-info mt-4">
+        <h6>Carregando tabela, aguarde...
+          <div class="spinner-border text-primary">
+          </div>
+        </h6>
+      </div>
+
+    <table class="table table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th></th>
+                <th>Nome</th>               
+                <th>Valor</th>               
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let produto of produtos">
+                <td><img src="{{ imagens }}{{ produto.imagem }}" style="width: 70px; height: 100px"></td>
+                <td>{{ produto.nome }}</td>                
+                <td>{{ produto.valor | currencyBrazil }}</td>                
+                <td class="text-right">
+                    <a class="btn btn-warning" [routerLink]="['/produtos/detalhes',produto.id]">
+                        <span class="fa fa-search"></span>
+                    </a>&nbsp;
+                    <a class="btn btn-info" [routerLink]="['/produtos/editar',produto.id]">
+                        <span class="fa fa-pencil-alt"></span>
+                    </a>&nbsp;
+                    <a class="btn btn-danger" [routerLink]="['/produtos/excluir',produto.id]">
+                        <span class="fa fa-trash"></span>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
